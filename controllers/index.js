@@ -1,7 +1,8 @@
 var router = require("express").Router();
 
 // split up route handling
-router.use("/auth", require("./auth"));
+router.use("/user", require("./user"));
+router.use("/parcel", require("./parcel"));
 
 router.get("/", async (req, res) => {
   try {

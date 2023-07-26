@@ -1,6 +1,6 @@
 const router = require("express").Router();
 
-router.get("/login", async (req, res) => {
+router.post("/postOut", async (req, res) => {
   try {
     return res.status(200).json({
       message: "fetched_people",
