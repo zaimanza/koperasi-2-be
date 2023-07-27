@@ -1,6 +1,10 @@
 const router = require("express").Router();
 const { User } = require("../../database/mongodb.database");
-
+// Example:
+// {
+//   "studentId": "123",
+//   "password": "12345"
+// }
 router.post("/login", async (req, res) => {
   try {
     const userModel = await User();
@@ -18,11 +22,6 @@ router.post("/login", async (req, res) => {
         ...isStudentData,
       });
     }
-
-    return res.status(200).json({
-      ...return_data,
-      acknowledged: false,
-    });
   } catch (error) {
     return res.status(400).json({
       acknowledged: false,

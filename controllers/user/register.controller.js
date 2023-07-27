@@ -1,6 +1,10 @@
 const router = require("express").Router();
 const { User } = require("../../database/mongodb.database");
-
+// Example:
+// {
+//   "studentId": "123",
+//   "password": "12345"
+// }
 router.post("/register", async (req, res) => {
   try {
     const userModel = await User();
