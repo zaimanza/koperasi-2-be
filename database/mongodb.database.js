@@ -15,3 +15,4 @@ exports.connectDB = async () => {
   }
 };
 exports.Parcel = async () => await db.collection("parcel");
+exports.User = async () => await db.collection("user");
