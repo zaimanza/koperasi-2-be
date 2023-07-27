@@ -4,7 +4,6 @@ const { User } = require("../../database/mongodb.database");
 router.get("/getById", async (req, res) => {
   try {
     const userModel = await User();
-    console.log(req.query);
     const body = req.body;
 
     const isStudentData = await userModel.findOne(body);
