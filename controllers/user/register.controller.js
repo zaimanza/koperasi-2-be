@@ -11,7 +11,7 @@ router.post("/register", async (req, res) => {
     const body = req.body;
 
     const isStudentExist =
-      (await userModel.find({ studentId: body?.studentId }).count()) > 0;
+      (await userModel.countDocuments({ studentId: body?.studentId })) > 0;
 
     if (!isStudentExist) {
       const return_data = await userModel.insertOne(body);
