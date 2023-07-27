@@ -8,8 +8,8 @@ const { User } = require("../../database/mongodb.database");
 router.post("/login", async (req, res) => {
   try {
     const userModel = await User();
-    const body = req.body;
 
+    const body = req.body;
     const isStudentData = await userModel.findOne(body);
 
     if (!isStudentData) {

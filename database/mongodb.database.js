@@ -1,17 +1,30 @@
-const { MongoClient } = require("mongodb");
+const { MongoClient, ServerApiVersion } = require("mongodb");
+
+const uri =
+  "mongodb+srv://aiman:S!mple01@cluster0.cuu3qdz.mongodb.net/?retryWrites=true&w=majority";
+// Create a MongoClient with a MongoClientOptions object to set the Stable API version
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  },
+});
+
 require("dotenv").config();
 
-var db;
+let db;
 var assetsModel;
-var client;
 
 exports.connectDB = async () => {
   try {
-    client = new MongoClient(
-      "mongodb+srv://aiman:S!mple01@cluster0.pkfhk.gcp.mongodb.net/?retryWrites=true&w=majority"
-    );
+    // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
-    db = client.db("koperasi_db");
+    // Send a ping to confirm a successful connection
+    db = await client.db("admin").command({ ping: 1 });
+    console.log(
+      "Pinged your deployment. You successfully connected to MongoDB!"
+    );
   } catch (error) {
     console.error(`MongoDB connection error: ${error}`);
   }

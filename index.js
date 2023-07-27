@@ -10,7 +10,7 @@ const bodyParser = require("body-parser");
 require("dotenv").config();
 var cors = require("cors");
 
-// connectDB();
+connectDB();
 app.use(
   bodyParser.urlencoded({
     extended: true,
