@@ -1,9 +1,9 @@
 var router = require("express").Router();
 
 // split up route handling
-router.use("/", require("./getAll.controller"));
-router.use("/", require("./getById.controller"));
-router.use("/", require("./postIn.controller"));
-router.use("/", require("./postOut.controller"));
+router.use("/", require("./get_all.controller"));
+router.use("/", require("./get_by_id.controller"));
+router.use("/", require("./in.controller"));
+router.use("/", require("./out.controller"));
 
 module.exports = router;

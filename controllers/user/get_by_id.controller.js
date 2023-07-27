@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { User } = require("../../database/mongodb.database");
 // Example: http://localhost:5000/user/getById?_id=64c1e9c71f8e51e418dc5ca8
-router.get("/getById", async (req, res) => {
+router.get("/get_by_id", async (req, res) => {
   try {
     const userModel = await User();
     const body = req.body;
