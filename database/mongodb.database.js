@@ -7,9 +7,11 @@ var client;
 
 exports.connectDB = async () => {
   try {
-    client = new MongoClient(process.env.MONGO_URL);
+    client = new MongoClient(
+      "mongodb+srv://aiman:S!mple01@cluster0.pkfhk.gcp.mongodb.net/?retryWrites=true&w=majority"
+    );
     await client.connect();
-    db = client.db(process.env.MONGO_DATABASE_NAME);
+    db = client.db("koperasi_db");
   } catch (error) {
     console.error(`MongoDB connection error: ${error}`);
   }
