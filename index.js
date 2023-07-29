@@ -38,4 +38,4 @@ app.use((error, req, res, next) => {
   });
 });
 
-app.listen(PORT, () => console.log(`Listening on ${PORT}`));
+app.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}/`));

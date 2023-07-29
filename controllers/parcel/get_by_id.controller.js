@@ -4,9 +4,9 @@ const { Parcel } = require("../../database/mongodb.database");
 router.get("/get_by_id", async (req, res) => {
   try {
     const parcelModel = await Parcel();
-    const body = req.body;
+    const query = req.query;
 
-    const isParcelData = await parcelModel.findOne(body);
+    const isParcelData = await parcelModel.findOne(query);
 
     if (!isParcelData) {
       return res.status(400).json({
