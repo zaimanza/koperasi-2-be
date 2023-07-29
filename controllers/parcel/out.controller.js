@@ -10,8 +10,10 @@ router.put("/out", async (req, res) => {
     const parcelModel = await Parcel();
 
     const body = req.body;
-    const isParcelData = await parcelModel.findOne(body);
 
+    const isParcelData = await parcelModel.findOne({
+      parcelId: body.parcelId,
+    });
     if (!isParcelData) {
       return res.status(400).json({
         acknowledged: false,
