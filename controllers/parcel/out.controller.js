@@ -26,7 +26,7 @@ router.put("/out", async (req, res) => {
         )
       ).value;
 
-      return res.status(400).json({
+      return res.status(200).json({
         ...fetchedParcel,
       });
     }
