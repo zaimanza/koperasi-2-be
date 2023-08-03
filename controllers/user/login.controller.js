@@ -18,7 +18,7 @@ router.post("/login", async (req, res) => {
         message: "Student does not exist.",
       });
     } else {
-      return res.status(400).json({
+      return res.status(200).json({
         ...isStudentData,
       });
     }
