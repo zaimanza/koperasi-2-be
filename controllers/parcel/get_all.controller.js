@@ -6,7 +6,9 @@ router.get("/", async (req, res) => {
     const parcelModel = await Parcel();
     const query = req.query;
 
-    const isParcelData = await parcelModel.find(query).toArray();
+    const isParcelData = await parcelModel
+      .find({ ...query, picked_out_at: { $exists: false } })
+      .toArray();
 
     return res.status(200).json(isParcelData);
   } catch (error) {
