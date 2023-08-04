@@ -15,10 +15,17 @@ router.post("/register", async (req, res) => {
 
     if (!isStudentExist) {
       const return_data = await userModel.insertOne(body);
-
-      if (return_data?.acknowledged) {
+      const isStudentData = await userModel.findOne({
+        studentId: body?.studentId,
+      });
+      if (!isStudentData) {
+        return res.status(400).json({
+          acknowledged: false,
+          message: "Student does not exist.",
+        });
+      } else {
         return res.status(200).json({
-          ...return_data,
+          ...isStudentData,
         });
       }
     } else {
@@ -27,11 +34,6 @@ router.post("/register", async (req, res) => {
         message: "Student already exist.",
       });
     }
-
-    return res.status(200).json({
-      ...return_data,
-      acknowledged: false,
-    });
   } catch (error) {
     return res.status(400).json({
       acknowledged: false,
